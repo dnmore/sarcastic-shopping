@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", system-ui;
+}
+
+.MuiFormControlLabel-label {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
