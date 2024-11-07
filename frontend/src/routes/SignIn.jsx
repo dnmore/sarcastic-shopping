@@ -9,6 +9,8 @@ import Fab from "@mui/material/Fab";
 import { authContext } from "../contexts/AuthContext";
 import Toast from "../components/Toast";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export default function SignIn() {
   const navigate = useNavigate();
@@ -44,7 +46,7 @@ export default function SignIn() {
 
           formData = JSON.stringify(values, null, 2);
           try {
-            const response = await fetch("http://localhost:5000/login", {
+            const response = await fetch(`${backendUrl}/login`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

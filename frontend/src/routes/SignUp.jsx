@@ -7,6 +7,8 @@ import FormInput from "../components/FormInput";
 import Toast from "../components/Toast";
 import Fab from "@mui/material/Fab";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default function SignUp() {
@@ -50,7 +52,7 @@ export default function SignUp() {
           formData = JSON.stringify(values, null, 2);
 
           try {
-            const response = await fetch("http://localhost:5000/register", {
+            const response = await fetch(`${backendUrl}/register`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
