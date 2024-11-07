@@ -26,7 +26,7 @@ db.init_app(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 api = Api(app)
-CORS(app, origins=["https://sarcastic-shopping.vercel.app/"])
+CORS(app, origins=["https://sarcastic-shopping.vercel.app"])
 
 
 products = [
