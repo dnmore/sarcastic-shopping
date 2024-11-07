@@ -3,13 +3,15 @@ import { useState, useEffect } from "react";
 import ChatbotIcon from "../components/ChatbotIcon";
 import ProductList from "../components/ProductList";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("All Absurdities");
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/products")
+    fetch(`${backendUrl}/products`)
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching products", error));
