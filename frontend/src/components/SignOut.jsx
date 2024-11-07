@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { authContext } from "../contexts/AuthContext";
+import { authContext } from "../contexts/authContext";
 
 import { Tooltip } from "@mui/material";
 import Zoom from "@mui/material/Zoom";

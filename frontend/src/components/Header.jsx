@@ -2,7 +2,7 @@ import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import { CartContext } from "../contexts/CartContext";
-import { authContext } from "../contexts/AuthContext";
+import { authContext } from "../contexts/authContext";
 
 import CartIcon from "./CartIcon";
 import CartDropdown from "./CartDropdown";

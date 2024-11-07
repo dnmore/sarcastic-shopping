@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import FormInput from "../components/FormInput";
 import Fab from "@mui/material/Fab";
 
-import { authContext } from "../contexts/AuthContext";
+import { authContext } from "../contexts/authContext";
 import Toast from "../components/Toast";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
