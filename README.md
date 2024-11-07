@@ -30,6 +30,8 @@
 - **SQLAlchemy** ORM for database interactions
 - **flask_jwt_extended** for JWT-based authentication
 - **dotenv** for environment variables management
+- **gunicorn** as Python WSGI HTTP Server for UNIX
+- **psycopg2** as Python-PostgreSQL Database Adapter
 
 ### Frontend
 - **React** with **Vite** for a fast and modern frontend
