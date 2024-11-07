@@ -26,7 +26,7 @@ db.init_app(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 api = Api(app)
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
+CORS(app)
 
 
 products = [
