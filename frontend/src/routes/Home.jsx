@@ -4,7 +4,7 @@ import ChatbotIcon from "../components/ChatbotIcon";
 import ProductList from "../components/ProductList";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-console.log("Backend URL:", backendUrl);
+
 
 const Home = () => {
   const [products, setProducts] = useState([]);
