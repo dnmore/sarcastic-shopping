@@ -7,6 +7,8 @@ import Toast from "../components/Toast";
 
 import Fab from "@mui/material/Fab";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 const CartDropdown = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ const CartDropdown = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5000/checkout", {
+      const response = await fetch(`${backendUrl}/checkout`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
