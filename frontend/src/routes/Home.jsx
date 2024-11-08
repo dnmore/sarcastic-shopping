@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import ChatbotIcon from "../components/ChatbotIcon";
 import ProductList from "../components/ProductList";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+console.log("Backend URL:", backendUrl);
 
 const Home = () => {
   const [products, setProducts] = useState([]);

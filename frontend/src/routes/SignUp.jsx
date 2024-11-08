@@ -7,7 +7,7 @@ import FormInput from "../components/FormInput";
 import Toast from "../components/Toast";
 import Fab from "@mui/material/Fab";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 

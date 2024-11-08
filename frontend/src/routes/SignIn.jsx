@@ -9,7 +9,7 @@ import Fab from "@mui/material/Fab";
 import { authContext } from "../contexts/authContext";
 import Toast from "../components/Toast";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 export default function SignIn() {
