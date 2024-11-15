@@ -12,7 +12,7 @@
   - **Quirkily Comforting**
 - **User Authentication**: Sign up, sign in, and sign out securely, with form validation and error handling.
 - **Cart Management**: Add products to your cart with preview.
-  - Custom hover messages on the cart icon when it's empty, with one item, or multiple items.
+  - Custom messages on the cart icon popping up when it's empty, with one item, or multiple items.
 - **Protected Checkout**: Only accessible by logged-in users. Unauthorized users receive a notification.
 - **Customizable Checkout Options**:
   - **Shipping Options**: Choose from over-the-top delivery methods with unique fees.
