@@ -12,7 +12,7 @@ import FormControl from "@mui/material/FormControl";
 
 export default function Checkout() {
   const { cartItems, cartTotal } = useContext(CartContext);
-  const [shippingFee, setShippingFee] = useState(0);
+  const [shippingFee, setShippingFee] = useState(920.00);
   const [wrappingFee, setWrappingFee] = useState(0);
   const [warrantyFee, setWarrantyFee] = useState(0);
 
@@ -52,7 +52,6 @@ export default function Checkout() {
             <FormControl>
               <RadioGroup
                 aria-labelledby="shipping-options"
-                defaultValue="someday"
                 name="shipping-options"
                 value={shippingFee}
                 onChange={(e) => setShippingFee(parseFloat(e.target.value) )}
@@ -212,6 +211,20 @@ export default function Checkout() {
                     overwhelming burst of color! (Cleanup not included.)
                   </p>
                   <p className="text-sm text-gray-700 text-center">€5.00</p>
+                </li>
+
+                <li className="grid grid-cols-4 text-xs my-4 items-center ">
+                  <div className="col-span-2">
+                    <FormControlLabel
+                      value={0}
+                      control={<Radio size="small" />}
+                      label="Naked and Unafraid Wrap"
+                    />
+                  </div>
+                  <p className="text-xs text-gray-700">
+                  For the bold minimalist in your life. The gift stands proudly unwrapped, baring its soul to the world. Packaging? Who needs it when you’ve got raw authenticity?
+                  </p>
+                  <p className="text-sm text-gray-700 text-center">Free</p>
                 </li>
               </RadioGroup>
             </FormControl>
