@@ -9,8 +9,11 @@ from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 import os
 from dotenv import load_dotenv
+import stripe
 
 load_dotenv()
+
+stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
 
 
 app = Flask(__name__)
@@ -169,6 +172,57 @@ def checkout():
   current_user_id = get_jwt_identity()
   user = User.query.get(current_user_id)
   return jsonify(logged_in_as=user.firstName), 200
+
+
+@app.route('/create-payment-intent', methods=['POST'])
+def create_payment_intent():
+    try:
+        # Parse the request body
+        data = request.get_json()
+        amount = data.get('amount')
+        currency = 'eur'
+
+        # Create a PaymentIntent
+        intent = stripe.PaymentIntent.create(
+            amount=amount,
+            currency=currency,
+            payment_method_types=['card']
+        )
+
+        return jsonify({
+            'clientSecret': intent['client_secret']
+        })
+    except Exception as e:
+        return jsonify(error=str(e)), 403
+
+
+@app.route('/webhook', methods=['POST'])
+def stripe_webhook():
+    payload = request.get_data(as_text=True)
+    sig_header = request.headers.get('Stripe-Signature')
+    endpoint_secret = os.getenv('STRIPE_WEBHOOK_SECRET')
+
+    try:
+        # Verify the webhook signature
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+        # Invalid payload
+        return jsonify({'error': 'Invalid payload'}), 400
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return jsonify({'error': 'Invalid signature'}), 400
+
+    # Handle the event
+    if event['type'] == 'payment_intent.succeeded':
+        payment_intent = event['data']['object']
+        print(f"PaymentIntent was successful: {payment_intent['id']}")
+    elif event['type'] == 'payment_intent.payment_failed':
+        error = event['data']['object']['last_payment_error']
+        print(f"Payment failed: {error['message']}")
+
+    return jsonify({'status': 'success'})
   
       
 if __name__ == '__main__':
