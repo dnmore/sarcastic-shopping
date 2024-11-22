@@ -2,8 +2,7 @@ import { useContext, useState } from "react";
 
 import { CartContext } from "../contexts/CartContext";
 import CheckoutCard from "../components/CheckoutCard";
-
-import Fab from "@mui/material/Fab";
+import PaymentForm from "../components/payment-form";
 
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -12,15 +11,14 @@ import FormControl from "@mui/material/FormControl";
 
 export default function Checkout() {
   const { cartItems, cartTotal } = useContext(CartContext);
-  const [shippingFee, setShippingFee] = useState(920.00);
+  const [shippingFee, setShippingFee] = useState(920.0);
   const [wrappingFee, setWrappingFee] = useState(0);
   const [warrantyFee, setWarrantyFee] = useState(0);
 
   const handleFinalPrice = () => {
-    const finalPrice = cartTotal + shippingFee + wrappingFee + warrantyFee
-    return finalPrice
-
-  }
+    const finalPrice = cartTotal + shippingFee + wrappingFee + warrantyFee;
+    return finalPrice;
+  };
 
   return (
     <div className="bg-white px-6 py-4">
@@ -39,6 +37,9 @@ export default function Checkout() {
             <CheckoutCard key={cartItem.id} cartItem={cartItem} />
           ))}
         </ul>
+        <p className="text-xl font-bold mb-3">
+          SUBTOTAL: €{cartTotal.toFixed(2)}
+        </p>
 
         {/*  SHIPPING OPTIONS */}
         <div className="flex flex-col mt-6">
@@ -54,19 +55,19 @@ export default function Checkout() {
                 aria-labelledby="shipping-options"
                 name="shipping-options"
                 value={shippingFee}
-                onChange={(e) => setShippingFee(parseFloat(e.target.value) )}
+                onChange={(e) => setShippingFee(parseFloat(e.target.value))}
               >
                 <li className="grid grid-cols-4 text-xs my-4 items-center">
                   <div className="col-span-2 text-sm">
                     <FormControlLabel
-                      value={920.00}
+                      value={920.0}
                       control={<Radio size="small" />}
                       label="Teleportation Speed"
                     />
                   </div>
                   <p className="text-xs text-gray-700">
-                  Arrives before you even finish checkout. Our fastest option! Perfect for those with zero patience
-                    (and a big wallet).
+                    Arrives before you even finish checkout. Our fastest option!
+                    Perfect for those with zero patience (and a big wallet).
                   </p>
                   <p className="text-sm text-gray-700 text-center">€920.00</p>
                 </li>
@@ -74,14 +75,15 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center ">
                   <div className="col-span-2">
                     <FormControlLabel
-                      value={4.50}
+                      value={4.5}
                       control={<Radio size="small" />}
                       label="Might Arrive Someday"
                     />
                   </div>
                   <p className="text-xs text-gray-700">
-                  Our budget-friendly option with absolutely no promises on
-                    the delivery date. Expect this sometime between now and the apocalypse. 
+                    Our budget-friendly option with absolutely no promises on
+                    the delivery date. Expect this sometime between now and the
+                    apocalypse.
                   </p>
                   <p className="text-sm text-gray-700 text-center">€4.50</p>
                 </li>
@@ -89,13 +91,14 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center ">
                   <div className="col-span-2">
                     <FormControlLabel
-                      value={46.00}
+                      value={46.0}
                       control={<Radio size="small" />}
                       label="Hand-Delivered by a Unicorn"
                     />
                   </div>
                   <p className="text-xs text-gray-700">
-                  Delivered by our mythical team, if you believe hard enough. No unicorns were harmed in the making of this delivery… but
+                    Delivered by our mythical team, if you believe hard enough.
+                    No unicorns were harmed in the making of this delivery… but
                     good luck with this one.
                   </p>
                   <p className="text-sm text-gray-700 text-center">€46.00</p>
@@ -104,14 +107,15 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center ">
                   <div className="col-span-2">
                     <FormControlLabel
-                      value={13.50}
+                      value={13.5}
                       control={<Radio size="small" />}
                       label="Next Full Moon Delivery"
                     />
                   </div>
                   <p className="text-xs text-gray-700">
-                    Guaranteed arrival on the next full moon. Perfect timing if you’re a werewolf and ideal for
-                    mysterious and nocturnal purchases.
+                    Guaranteed arrival on the next full moon. Perfect timing if
+                    you’re a werewolf and ideal for mysterious and nocturnal
+                    purchases.
                   </p>
                   <p className="text-sm text-gray-700 text-center">€13.50</p>
                 </li>
@@ -119,14 +123,15 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center ">
                   <div className="col-span-2">
                     <FormControlLabel
-                      value={18.50}
+                      value={18.5}
                       control={<Radio size="small" />}
                       label="Carrier Pigeon Delivery "
                     />
                   </div>
                   <p className="text-xs text-gray-700">
-                  Go vintage with this low-carbon footprint option. Includes
-                    ‘Bird GPS’ tracking. Allow 3-5 weeks for carrier pigeon travel time (and occasional bird snacks). 
+                    Go vintage with this low-carbon footprint option. Includes
+                    ‘Bird GPS’ tracking. Allow 3-5 weeks for carrier pigeon
+                    travel time (and occasional bird snacks).
                   </p>
                   <p className="text-sm text-gray-700 text-center">€18.50</p>
                 </li>
@@ -172,7 +177,7 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center ">
                   <div className="col-span-2">
                     <FormControlLabel
-                      value={3.50}
+                      value={3.5}
                       control={<Radio size="small" />}
                       label="Bubble Wrap Overkill"
                     />
@@ -201,7 +206,7 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center ">
                   <div className="col-span-2">
                     <FormControlLabel
-                      value={5.00}
+                      value={5.0}
                       control={<Radio size="small" />}
                       label="Confetti Explosion"
                     />
@@ -222,7 +227,9 @@ export default function Checkout() {
                     />
                   </div>
                   <p className="text-xs text-gray-700">
-                  For the bold minimalist in your life. The gift stands proudly unwrapped, baring its soul to the world. Packaging? Who needs it when you’ve got raw authenticity?
+                    For the bold minimalist in your life. The gift stands
+                    proudly unwrapped, baring its soul to the world. Packaging?
+                    Who needs it when you’ve got raw authenticity?
                   </p>
                   <p className="text-sm text-gray-700 text-center">Free</p>
                 </li>
@@ -253,7 +260,7 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center">
                   <div className="col-span-2 text-sm">
                     <FormControlLabel
-                      value={2.50}
+                      value={2.5}
                       control={<Radio size="small" />}
                       label="Lifetime Warranty (of the product, not you)"
                     />
@@ -269,7 +276,7 @@ export default function Checkout() {
                 <li className="grid grid-cols-4 text-xs my-4 items-center ">
                   <div className="col-span-2">
                     <FormControlLabel
-                      value={1.00}
+                      value={1.0}
                       control={<Radio size="small" />}
                       label="The Eternal Optimist Package"
                     />
@@ -304,12 +311,8 @@ export default function Checkout() {
 
         {/* END OPTIONS */}
         <div>
-          <p className="text-xl font-bold mb-3">
-            TOTAL: €{handleFinalPrice()}
-          </p>
-          <Fab color="primary" aria-label="pay" variant="extended">
-            Pay Now
-          </Fab>
+          <p className="text-xl font-bold mb-3">TOTAL: €{handleFinalPrice()}</p>
+          <PaymentForm finalPrice={handleFinalPrice()} />
         </div>
       </div>
     </div>
