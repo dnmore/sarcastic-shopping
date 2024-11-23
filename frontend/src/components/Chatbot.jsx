@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { IoSend } from "react-icons/io5";
 import { FaRobot } from "react-icons/fa6";
 
@@ -8,13 +8,21 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [responseIndex, setResponseIndex] = useState(0);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behaviour: "smooth" });
+  };
 
   const handleMessage = () => {
     if (input.trim()) {
       const newMessage = { text: input, sender: "user" };
       setMessages([...messages, newMessage]);
       setInput("");
-      getSarcasticResponse(newMessage.text);
+
+      setTimeout(() => {
+        getSarcasticResponse(newMessage.text);
+      }, 100);
     }
   };
 
@@ -35,6 +43,9 @@ const Chatbot = () => {
     );
     const botMessage = { text: nextResponse, sender: "bot" };
     setMessages((prevMessages) => [...prevMessages, botMessage]);
+    setTimeout(() => {
+      scrollToBottom();
+    }, 100);
   };
 
   return (
@@ -75,7 +86,9 @@ const Chatbot = () => {
               <p className="text-sm">{message.text}</p>
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
+
         <div className="flex items-center p-2 gap-3 ">
           <div>
             <input
