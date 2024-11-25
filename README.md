@@ -1,6 +1,6 @@
 # 🛒 Sarcastic Shopping 
 
-**Sarcastic Shopping** is a full-stack eCommerce application built with a humorous twist, featuring React on the frontend and Python (Flask) on the backend. This app sells products that no one really needs, complete with absurd descriptions, nonsensical categories, and sarcastic interactions throughout the shopping experience. 
+**Sarcastic Shopping** is a full-stack fictional eCommerce application built with a humorous twist, featuring **React** on the frontend and **Python (Flask)** on the backend. This app sells products that no one really needs, complete with absurd descriptions, nonsensical categories, and sarcastic interactions throughout the shopping experience. 
 
 ## ✨ Features
 
@@ -10,10 +10,18 @@
   - **Luxuriously Useless**
   - **Nostalgic Nonsense**
   - **Quirkily Comforting**
-- **User Authentication**: Sign up, sign in, and sign out securely, with form validation and error handling.
-- **Cart Management**: Add products to your cart with preview.
-  - Custom messages on the cart icon popping up when it's empty, with one item, or multiple items.
-- **Protected Checkout**: Only accessible by logged-in users. Unauthorized users receive a notification.
+- **User Authentication**:
+  - Sign up, sign in, and sign out securely, with form validation and error handling.
+  - Live testing credentials:
+[REDACTED]
+[REDACTED]
+- **Cart Management**:
+  - Add products to your cart with preview.
+  - Custom messages on the cart icon for empty, single-item, or multiple-item states.
+- **Protected Checkout**:
+  - Only accessible by logged-in users. Unauthorized users receive a notification.
+  - Features Stripe integration for payment processing:
+    - Test out Stripe payment features using [Stripe test card details](https://docs.stripe.com/testing).
 - **Customizable Checkout Options**:
   - **Shipping Options**: Choose from over-the-top delivery methods with unique fees.
   - **Gift Wrap Choices**: Add whimsical wrapping options for an extra laugh.
@@ -27,19 +35,25 @@
 - **flask_restful** for API development
 - **flask_cors** for handling CORS policies
 - **flask_bcrypt** for password hashing
-- **SQLAlchemy** ORM for database interactions
+- **PostgreSQL** database with:
+  - **SQLAlchemy** ORM for database interactions
+  - **psycopg2** as Python-PostgreSQL Database Adapter
 - **flask_jwt_extended** for JWT-based authentication
 - **dotenv** for environment variables management
 - **gunicorn** as Python WSGI HTTP Server for UNIX
-- **psycopg2** as Python-PostgreSQL Database Adapter
+
 
 ### Frontend
 - **React** with **Vite** for a fast and modern frontend
 - **TailwindCSS** for utility-first styling
-- **MUI (Joy and Material UI)** for UI components
-- **Formik** and **Yup** for handling form validation
+- **MUI** (Joy and Material UI) for UI components
+- **Formik** and **Yup** for form validation
 - **React Router** for routing
 - **React Icons** for iconography
+
+### Hosting and Deployment
+- **Frontend**: Deployed on [Vercel](https://vercel.com/).
+- **Backend**: Deployed on [Render](https://render.com/) with a **PostgreSQL** database.
 
 ## ⚙️ Installation
 
@@ -62,12 +76,12 @@
      flask run
    ```
 3. Frontend Setup:
-    - Navigate to the frontend directory:
+   - Navigate to the frontend directory:
    ```bash
      cd frontend
    ```
    - Install frontend dependencies:
-  ```bash
+   ```bash
     npm install
    ```
    - Start the development server:
