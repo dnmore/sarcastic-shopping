@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 
 import ChatbotIcon from "../components/ChatbotIcon";
-import ProductList from "../components/ProductList";
+import Loader from "../components/Loader";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
-
+const ProductList = lazy(() => import("../components/ProductList"));
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -84,8 +84,9 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <ProductList products={filteredProducts} />
-     
+        <Suspense fallback={<Loader />}>
+          <ProductList products={filteredProducts} />
+        </Suspense>
       </div>
       <ChatbotIcon />
     </div>
