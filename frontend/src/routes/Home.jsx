@@ -8,7 +8,7 @@ const ProductList = lazy(() => import("../components/ProductList"));
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState("All Absurdities");
+  const [category, setCategory] = useState("Quirkily Comforting");
   const [filteredProducts, setFilteredProducts] = useState(products);
 
   useEffect(() => {
@@ -37,18 +37,21 @@ const Home = () => {
       </p>
 
       <div className="flex flex-col sm:flex-row sm:gap-4">
-        <div className="relative flex gap-x-1">
+
+      <div className="relative flex gap-x-1">
           <div className="flex h-6 items-center">
             <button
-              value="All Absurdities"
+              value="Quirkily Comforting"
               autoFocus
               onClick={(e) => setCategory(e.currentTarget.value)}
               className="text-sm font-semibold bg-transparent text-gray-900 cursor-pointer hover:opacity-75 focus:text-blue-700 outline-none"
             >
-              All Absurdities
+              Quirkily Comforting
             </button>
           </div>
         </div>
+        
+
         <div className="relative flex gap-x-1">
           <div className="flex h-6 items-center">
             <button
@@ -60,6 +63,8 @@ const Home = () => {
             </button>
           </div>
         </div>
+
+
         <div className="relative flex gap-x-1">
           <div className="flex h-6 items-center">
             <button
@@ -71,17 +76,24 @@ const Home = () => {
             </button>
           </div>
         </div>
+
+
+        
+
         <div className="relative flex gap-x-1">
           <div className="flex h-6 items-center">
             <button
-              value="Quirkily Comforting"
+              value="All Absurdities"
+              
               onClick={(e) => setCategory(e.currentTarget.value)}
               className="text-sm font-semibold bg-transparent text-gray-900 cursor-pointer hover:opacity-75 focus:text-blue-700 outline-none"
             >
-              Quirkily Comforting
+              All Absurdities
             </button>
           </div>
         </div>
+
+
       </div>
       <div>
         <Suspense fallback={<Loader />}>
