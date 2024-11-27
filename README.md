@@ -12,10 +12,7 @@
   - **Quirkily Comforting**
 - **User Authentication**:
   - Sign up, sign in, and sign out securely, with form validation and error handling.
-  - Live testing credentials:
-[REDACTED]
-[REDACTED]
-- **Cart Management**:
+  **Cart Management**:
   - Add products to your cart with preview.
   - Custom messages on the cart icon for empty, single-item, or multiple-item states.
 - **Protected Checkout**:
