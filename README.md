@@ -47,10 +47,6 @@
 - **React Router** for routing
 - **React Icons** for iconography
 
-### Hosting and Deployment
-- **Frontend**: Deployed on [Vercel](https://vercel.com/).
-- **Backend**: Deployed on [Render](https://render.com/) with a **PostgreSQL** database.
-
 ## ⚙️ Installation
 
 1. Clone the repository:
