@@ -18,7 +18,6 @@
 - **Protected Checkout**:
   - Only accessible by logged-in users. Unauthorized users receive a notification.
   - Features Stripe integration for payment processing:
-    - Test out Stripe payment features using [Stripe test card details](https://docs.stripe.com/testing).
 - **Customizable Checkout Options**:
   - **Shipping Options**: Choose from over-the-top delivery methods with unique fees.
   - **Gift Wrap Choices**: Add whimsical wrapping options for an extra laugh.
