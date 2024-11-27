@@ -30,7 +30,6 @@ export default function SignUp() {
           lastName: "",
           email: "",
           password: "",
-[REDACTED]
         }}
         validationSchema={Yup.object({
           firstName: Yup.string().required("*Required"),
@@ -41,10 +40,6 @@ export default function SignUp() {
           password: Yup.string()
             .min(8, "*Must be at least 8 characters")
             .required("*Required"),
-[REDACTED]
-            .min(8, "*Must be at least 8 characters")
-            .required("*Required")
-[REDACTED]
         })}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           await sleep(500);
@@ -62,7 +57,6 @@ export default function SignUp() {
             const result = await response.json();
 
             if (response.ok) {
-              
               setToastSeverity("success");
               setToastMessage(result.message);
               setToastOpen(true);
@@ -73,24 +67,21 @@ export default function SignUp() {
                   lastName: "",
                   email: "",
                   password: "",
-[REDACTED]
                 },
               });
               navigate("/");
             } else if (response.status === 409) {
-             
               setToastSeverity("error");
               setToastMessage(result.message);
               setToastOpen(true);
             } else {
-              
               setToastSeverity("error");
               setToastMessage(result.message);
               setToastOpen(true);
             }
           } catch (error) {
             console.error("Error:", error);
-            
+
             setToastSeverity("error");
             setToastMessage("Something went wrong. Please try again.");
             setToastOpen(true);
@@ -117,25 +108,14 @@ export default function SignUp() {
           </div>
 
           <FormInput
-[REDACTED]
             name="email"
             type="email"
             placeholder="jane@test.com"
             autoComplete="email"
           />
-          <FormInput
-[REDACTED]
-            name="password"
-            type="password"
-            autoComplete="password"
-          />
+          <FormInput name="password" type="password" autoComplete="password" />
 
-          <FormInput
-[REDACTED]
-[REDACTED]
-            type="password"
-            autoComplete="confirm-password"
-          />
+          <FormInput type="password" autoComplete="confirm-password" />
           <Fab
             type="submit"
             color="primary"

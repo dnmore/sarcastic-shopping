@@ -92,14 +92,14 @@ export default function SignIn() {
       >
         <Form className="my-4">
           <FormInput
-[REDACTED]
+
             name="email"
             type="email"
-            placeholder="jane@test.com"
+            placeholder="your email address"
             autoComplete="email"
           />
           <FormInput
-[REDACTED]
+
             name="password"
             type="password"
             autoComplete="password"
