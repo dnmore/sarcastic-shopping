@@ -94,7 +94,7 @@ export default function SignUp() {
               label="First Name"
               name="firstName"
               type="text"
-              placeholder="Jane"
+              placeholder="your first name"
               autoComplete="first-name"
             />
 
@@ -102,20 +102,26 @@ export default function SignUp() {
               label="Last Name"
               name="lastName"
               type="text"
-              placeholder="Doe"
+              placeholder="your last name"
               autoComplete="last-name"
             />
           </div>
 
           <FormInput
+            label="Email"
             name="email"
             type="email"
-            placeholder="jane@test.com"
+            placeholder="your email address"
             autoComplete="email"
           />
-          <FormInput name="password" type="password" autoComplete="password" />
+          <FormInput
+            label="Password"
+            name="password"
+            type="password"
+            placeholder="type password"
+            autoComplete="password"
+          />
 
-          <FormInput type="password" autoComplete="confirm-password" />
           <Fab
             type="submit"
             color="primary"
