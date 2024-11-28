@@ -127,7 +127,7 @@ with app.app_context():
     
 
     
-@app.route('/register', methods=['POST'])
+@app.route('/register', methods=['POST', 'HEAD'])
 @cross_origin()
 def register():
   
@@ -151,7 +151,7 @@ def register():
   return jsonify({"message":"Registered successfully!"}), 201
 
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'HEAD'])
 def login():
   data = request.json
   email = data.get('email')
