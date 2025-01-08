@@ -2,6 +2,8 @@
 
 **Sarcastic Shopping** is a full-stack fictional eCommerce application built with a humorous twist, featuring **React** on the frontend and **Python (Flask)** on the backend. This app sells products that no one really needs, complete with absurd descriptions, nonsensical categories, and sarcastic interactions throughout the shopping experience. 
 
+![Preview](/preview.png)
+
 ## ✨ Features
 
 - **Hilarious Product Listings**: Explore items with comically pointless names, descriptions, and prices.

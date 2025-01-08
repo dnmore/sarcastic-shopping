@@ -22,14 +22,14 @@ class Base(DeclarativeBase):
     pass
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URI','sqlite:///users.db') 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 api = Api(app)
-CORS(app, origins=["https://sarcastic-shopping.vercel.app"], methods=["GET", "POST", "OPTIONS"], allow_headers=["Content-Type", "Authorization"])
+CORS(app)
 
 
 products = [
