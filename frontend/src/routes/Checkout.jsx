@@ -310,8 +310,12 @@ export default function Checkout() {
         </div>
 
         {/* END OPTIONS */}
-        <div>
-          <p className="text-xl font-bold mb-3">TOTAL: €{handleFinalPrice()}</p>
+        <div className="py-6">
+          <p className="text-xl font-bold mb-6">TOTAL: €{handleFinalPrice()}</p>
+          <p className="text-base mb-2 font-semibold uppercase my-4 ">
+            Payment
+          </p>
+
           <PaymentForm finalPrice={handleFinalPrice()} />
         </div>
       </div>

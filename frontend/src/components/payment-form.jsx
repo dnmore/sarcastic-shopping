@@ -79,7 +79,7 @@ const PaymentForm = ({ finalPrice }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-80 ">
       <div className="p-4 bg-slate-200 ">
         <CardElement options={CARD_ELEMENT_OPTIONS} />
       </div>
